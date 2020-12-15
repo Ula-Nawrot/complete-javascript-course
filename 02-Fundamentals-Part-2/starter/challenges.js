@@ -42,3 +42,25 @@
 // const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
 
 // //console.log(calcTip(bills[0]))
+
+
+//Challenge Developer Skills
+
+//1)Understanding a problem
+// - you give an array of temperatures
+// - you recieve a string with all the temperatures
+//2) Break it up into sup-problems - what exactly you have to do
+// - create an array
+// - create a function with a parameter which is an array
+// - create a for loop
+// - 
+
+let temps = [17, 21, 23];
+
+function printForcast (temperatures){
+    
+    const forcast = `... ${temperatures[0]} in 1 day ... ${temperatures[1]} in 2 days ... ${temperatures[2]} in 3 days ...`;
+    console.log(forcast);
+}
+
+printForcast(temps);
