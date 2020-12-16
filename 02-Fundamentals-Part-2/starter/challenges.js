@@ -55,12 +55,49 @@
 // - create a for loop
 // - 
 
-let temps = [17, 21, 23];
+// let temps = [17, 21, 23];
 
-function printForcast (temperatures){
+// function printForcast (temperatures){
     
-    const forcast = `... ${temperatures[0]} in 1 day ... ${temperatures[1]} in 2 days ... ${temperatures[2]} in 3 days ...`;
-    console.log(forcast);
-}
+//     const forcast = `... ${temperatures[0]} in 1 day ... ${temperatures[1]} in 2 days ... ${temperatures[2]} in 3 days ...`;
+//     console.log(forcast);
+// }
 
-printForcast(temps);
+
+// Challenge 3
+
+//1)Understanding a problem
+// - create two obecjects
+// - then create if else statement and check which BMI is higher
+//2) Break it up into sup-problems - what exactly you have to do
+// - create an object
+// - add full name, mass, and height
+// - create a method
+
+// const mark = {
+//     fullName: `Mark Miller`,
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function (){
+//         return this.bmi = this.mass/(this.height **2);
+//     },
+// };
+
+// const jonas = {
+//     fullName: `John Smith`,
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function (){
+//         return this.bmi = this.mass/(this.height **2);
+//     },
+// };
+// mark.calcBMI();
+// jonas.calcBMI()
+
+// if (mark.bmi > jonas.bmi){
+//     console.log(`Mark's BMI (${mark.bmi}) is higher than Jonas's (${jonas.bmi})!`);
+// } else if (jonas.bmi > mark.bmi) {
+//     console.log(`Jonas's (${jonas.bmi}) is higher than Mark's BMI (${mark.bmi})!`);
+// }
+
+// console.log(mark.bmi, jonas.bmi);
