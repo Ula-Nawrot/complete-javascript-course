@@ -300,3 +300,50 @@
 //     if(typeof jonas[i] == `number`) break
 //     console.log(jonas[i], typeof jonas[i]);
 // }
+
+
+// Loops backwords
+
+// const jonas = [
+//     'Jonas',
+//     'Schmedtmann',
+//     2037 - 1991,
+//     'teacher',
+//     ['Michael', 'Peter', 'Steven'],
+// ]
+
+// for(let i = jonas.length - 1; i >= 0; i--) {
+//     console.log(i, jonas[i]);
+// }
+
+// //Loops inside the loop
+
+// for(let exercise = 1; exercise <= 3; exercise++) {
+//     console.log(`------------Starting exsercise ${exercise}`);
+
+//     for(let rep = 1; rep <= 5; rep++) {
+//         console.log(`Lifting weigth repetition ${rep}`);
+//     }
+// }
+
+
+// // The while Loop
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+//   }
+
+// //This condition will be run while this condition will be true
+// let rep = 1;
+// while (rep <= 10 ) {
+//     console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+//     rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`);
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   if (dice === 6) console.log('Loop is about to end...');
+// }
+  
