@@ -254,3 +254,49 @@
 //   // Challenge
 //   // "Jonas is a 46-year old teacher, and he has a driver's license"
 //   console.log(jonas.getSummary());
+
+//Loops
+
+// const jonas = [
+//     'Jonas',
+//     'Schmedtmann',
+//     2037 - 1991,
+//     'teacher',
+//     ['Michael', 'Peter', 'Steven'],
+//     true
+// ]
+// const types = [];
+
+//   for(let i = 0; i < jonas.length; i++) {
+//       console.log(jonas[i], typeof jonas[i]);
+//       // Adding values to array "types"
+//       //types[i] = typeof jonas[i]
+
+//       //we can do this the same by using push methode
+//       types.push(typeof jonas[i])
+//   }
+//   console.log(types);
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//     ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+// //Continue
+// for(let i = 0; i < jonas.length; i++) {
+//     //this id condition says that if value of a jonas' array isn't a string
+//     // don't execute code below but continue with another value
+//     //continue - it immediately exit current iteration
+//     if(typeof jonas[i] !== `string`) continue
+//     console.log(jonas[i], typeof jonas[i]);
+// }
+
+// //Break - it terminate the whole loop, not just an itteration
+// for(let i = 0; i < jonas.length; i++) {
+//     //after it founds first number in an array it stop a loop
+//     if(typeof jonas[i] == `number`) break
+//     console.log(jonas[i], typeof jonas[i]);
+// }
