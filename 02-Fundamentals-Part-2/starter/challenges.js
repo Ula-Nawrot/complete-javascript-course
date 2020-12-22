@@ -101,3 +101,30 @@
 // }
 
 // console.log(mark.bmi, jonas.bmi);
+
+//Challenge 4
+
+const bill = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const total = [];
+
+function calcTip(bill) {
+    if (bill >= 50 && bill <= 300) {
+        const tip = bill * 0.15;
+        console.log(`Your bill is ${bill} and tip is ${tip}, in total you pay ${bill + tip}`);
+        return tip
+    } else {
+        const tip = bill * 0.2;
+        console.log(`Your bill is ${bill} and tip is ${tip}, in total you pay ${bill + tip}`);
+        return tip
+    }
+}
+
+for(let i = 0; i < bill.length; i++) {
+  const tip = calcTip(bill[i]);
+  tips.push(tip);
+  total.push(tip + bill[i]);
+
+}
+
+console.log(tips, total);
