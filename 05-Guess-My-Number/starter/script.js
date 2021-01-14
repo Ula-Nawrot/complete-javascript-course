@@ -25,26 +25,26 @@ document.querySelector('.check').addEventListener('click', function() {
         // when guess is correct/ when palyer wins
     } else if (secretNumber === guess) {
         //document.querySelector('.message').textContent = 'Correct Number';
-        displayMessage('Correct Number');
+        displayMessage('Correct Number !!! You won :)');
         document.querySelector('.number').textContent = secretNumber;
 
-        document.querySelector('body').style.backgroundColor = '#60b347';
-        document.querySelector('.number').style.width = '30rem'
+        document.querySelector('body').style.backgroundImage = "url('bg-win2.png')"; 
+        document.querySelector('.number').style.backgroundColor = '#F9F871'
 
         if(score > highscore){
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
         } 
-        //When guess is wrong
+    //When guess is wrong
     } else if(guess !== secretNumber){
         if(score > 1){
             //document.querySelector('.message').textContent = guess > secretNumber ? 'Too high' : 'Too low';
-            displayMessage(guess > secretNumber ? 'Too high' : 'Too low');
+            displayMessage(guess > secretNumber ? 'Too high.' : 'Too low.');
         score--;
         document.querySelector('.score').textContent = score;
         }else {
             //document.querySelector('.message').textContent = 'You lost the game';
-            displayMessage('You lost the game');
+            displayMessage('You lost the game :(');
         }
     }})
         //When guess is to high
@@ -91,6 +91,6 @@ document.querySelector('.again').addEventListener('click', function () {
     //document.querySelector('.message').textContent = 'Start guessing...';
     displayMessage('Start guessing...');
     document.querySelector('.guess').value = '';
-    document.querySelector('body').style.backgroundColor = '#0E2518';
-    document.querySelector('.number').style.width = '15rem';
+    document.querySelector('body').style.backgroundImage = "url('guess_number.png')";  
+    document.querySelector('.number').style.backgroundColor = '#4ff7b4'
 } )
