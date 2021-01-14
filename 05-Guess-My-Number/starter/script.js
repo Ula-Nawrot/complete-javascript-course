@@ -36,34 +36,38 @@ document.querySelector('.check').addEventListener('click', function() {
             document.querySelector('.highscore').textContent = highscore;
         } 
     //When guess is wrong
-    } else if(guess !== secretNumber){
-        if(score > 1){
-            //document.querySelector('.message').textContent = guess > secretNumber ? 'Too high' : 'Too low';
-            displayMessage(guess > secretNumber ? 'Too high.' : 'Too low.');
-        score--;
-        document.querySelector('.score').textContent = score;
-        }else {
-            //document.querySelector('.message').textContent = 'You lost the game';
-            displayMessage('You lost the game :(');
-        }
-    }})
-        //When guess is to high
-    // } else if (secretNumber < guess) {
-    //     if(score > 1){document.querySelector('.message').textContent = 'Too high';
+    // } else if(guess !== secretNumber){
+    //     if(score > 1){
+    //         //document.querySelector('.message').textContent = guess > secretNumber ? 'Too high' : 'Too low';
+    //         displayMessage(guess > secretNumber ? 'Too high.' : 'Too low.');
     //     score--;
     //     document.querySelector('.score').textContent = score;
     //     }else {
-    //         document.querySelector('.message').textContent = 'You lost the game';
+    //         //document.querySelector('.message').textContent = 'You lost the game';
+    //         displayMessage('You lost the game :(');
     //     }
-    //     // When guess is to low
-    // } else if (secretNumber > guess){
-    //     if(score > 1){
-    //         document.querySelector('.message').textContent = 'Too low';
-    //     score--;
-    //     document.querySelector('.score').textContent = score;
-    //     } else {
-    //         document.querySelector('.message').textContent = 'You lost the game';
-    //     }
+    // }})
+        //When guess is to high
+    } else if (guess > secretNumber && guess < 21) {
+        if(score > 1){
+            displayMessage('Too high!');
+            score--;
+            document.querySelector('.score').textContent = score;
+        }else {
+            document.querySelector('.message').textContent = 'You lost the game';
+        }
+        // When guess is to low
+    } else if (guess > secretNumber && guess > 21){
+        displayMessage('The number is out of range.');
+    }else if (secretNumber > guess){
+        if(score > 1){
+            document.querySelector('.message').textContent = 'Too low.';
+        score--;
+        document.querySelector('.score').textContent = score;
+        } else {
+            document.querySelector('.message').textContent = 'You lost the game :(';
+            }
+    }})
         
     
 
