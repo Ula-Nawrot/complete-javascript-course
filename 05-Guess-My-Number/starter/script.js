@@ -57,16 +57,18 @@ document.querySelector('.check').addEventListener('click', function() {
             document.querySelector('.message').textContent = 'You lost the game';
         }
         // When guess is to low
-    } else if (guess > secretNumber && guess > 21){
-        displayMessage('The number is out of range.');
-    }else if (secretNumber > guess){
+    } else if (guess < secretNumber && guess >= 0){
         if(score > 1){
-            document.querySelector('.message').textContent = 'Too low.';
-        score--;
-        document.querySelector('.score').textContent = score;
+            displayMessage('Too low!');
+            score--;
+            document.querySelector('.score').textContent = score;
         } else {
             document.querySelector('.message').textContent = 'You lost the game :(';
             }
+    }else {
+        displayMessage('The number is out of range.');
+        // document.querySelector('.message').style.color = '#f70b0b';
+
     }})
         
     
