@@ -74,3 +74,34 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+//Challenge 1
+// let juliasDogs = [3, 5, 2, 12, 7];
+// const KatesDogs = [4, 1, 15, 8, 3];
+
+// const checkDogs = function (array1, array2) {
+//  juliasDogs = array1.slice(1,3); 
+//  console.log(juliasDogs);
+//  const allDogs = juliasDogs.concat(array2)
+ 
+//  allDogs.forEach(function (dog, i) {
+//    dog >= 3 ? console.log(`Dog number ${i + 1} is an adult and is ${dog} years old`) : console.log(`Dog number ${i + 1} is still a puppy`)
+//  })
+// }
+// checkDogs(juliasDogs, KatesDogs)
+
+//Chalenge 2
+const ages = [5, 2, 4, 1, 15, 8, 3];
+function calcAverageHumanAge (params) {
+  const humanAge = params.map(function(curr){
+    if (curr <= 2) return 2 * curr;
+    else return 16 + curr * 4;
+  }).filter(function(curr){
+    return curr >= 18
+  }).reduce(function(total,curr,i,arr){
+    return total + curr / arr.length
+  },0);
+  console.log(humanAge);
+
+}
+
+calcAverageHumanAge(ages)
