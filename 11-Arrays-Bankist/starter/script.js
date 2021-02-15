@@ -90,18 +90,46 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // checkDogs(juliasDogs, KatesDogs)
 
 //Chalenge 2
-const ages = [5, 2, 4, 1, 15, 8, 3];
-function calcAverageHumanAge (params) {
-  const humanAge = params.map(function(curr){
-    if (curr <= 2) return 2 * curr;
-    else return 16 + curr * 4;
-  }).filter(function(curr){
-    return curr >= 18
-  }).reduce(function(total,curr,i,arr){
-    return total + curr / arr.length
-  },0);
-  console.log(humanAge);
+// const ages = [5, 2, 4, 1, 15, 8, 3];
+// function calcAverageHumanAge (params) {
+//   const humanAge = params.map(function(curr){
+//     if (curr <= 2) return 2 * curr;
+//     else return 16 + curr * 4;
+//   }).filter(function(curr){
+//     return curr >= 18
+//   }).reduce(function(total,curr,i,arr){
+//     return total + curr / arr.length
+//   },0);
+//   console.log(humanAge);
 
-}
+// }
 
-calcAverageHumanAge(ages)
+// calcAverageHumanAge(ages)
+
+//Challenge 3
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+dogs.forEach(dogs => dogs.recommendedFood = Math.trunc(dogs.weight ** 0.75 * 28));
+console.log(dogs);
+
+const dogSara = dogs.find(dog => dog.owners.includes('Sarah'));
+
+const howMuchItEats = dogs.map((dog) => {
+    if (dog.curFood < 0.9 * dog.recommendedFood) {
+    console.log(`${dog.owners[0]}'s dog eats too little food.`);
+  } else if (dog.curFood > 1.1 * dog.recommendedFood){
+    console.log(`${dog.owners[0]}'s dog eats too much food.`);
+  } else {
+    console.log(`${dog.owners[0]}'s dog eats enough food.`);
+  }})
+  
+
+
+console.log(howMuchItEats);
+
+
