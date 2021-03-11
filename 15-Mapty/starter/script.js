@@ -77,10 +77,13 @@ class App {
     #workouts = [];
 
     constructor() {
+        // Get user's position
         this._getPosition();
+        // Get data from local storage
+        this._getLocalStorage();
 
+        // Attach event handlers
         form.addEventListener('submit', this._newWorkOut.bind(this));
-
         inputType.addEventListener('change', this._toggleElevationField)
         containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
     }
@@ -113,7 +116,11 @@ class App {
         L.marker([latitude, longitude]).addTo(this.#map).bindPopup("You are here").openPopup();
 
         //Handling clincks on map
-        this.#map.on('click', this._showForm.bind(this))
+        this.#map.on('click', this._showForm.bind(this));
+
+        this.#workouts.forEach(work => {
+            this._renderWorkoutMarker(work);
+        });
     }
 
     _showForm(mapE) {
@@ -126,17 +133,17 @@ class App {
     _hideForm() {
         // Empty inputs
         inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-          '';
-    
+            '';
+
         form.style.display = 'none';
         form.classList.add('hidden');
         setTimeout(() => (form.style.display = 'grid'), 1000);
-      }
-    
-      _toggleElevationField() {
+    }
+
+    _toggleElevationField() {
         inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
         inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
-      }
+    }
 
     _toggleElevationField() {
         inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
@@ -201,8 +208,8 @@ class App {
         /// Hide form + clear input fields
         this._hideForm();
 
-        //Clear distance
-        inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
+        // Set local storage to all workouts
+        this._setLocalStorage();
 
 
     }
@@ -277,24 +284,45 @@ class App {
     _moveToPopup(e) {
         // BUGFIX: When we click on a workout before the map has loaded, we get an error. But there is an easy fix:
         if (!this.#map) return;
-    
+
         const workoutEl = e.target.closest('.workout');
-    
+
         if (!workoutEl) return;
-    
+
         const workout = this.#workouts.find(
-          work => work.id === workoutEl.dataset.id
+            work => work.id === workoutEl.dataset.id
         );
-    
+
         this.#map.setView(workout.coords, this.#mapZoomLevel, {
-          animate: true,
-          pan: {
-            duration: 1,
-          },
+            animate: true,
+            pan: {
+                duration: 1,
+            },
         });
-    
+
         // using the public interface
         // workout.click();
+    }
+
+    _setLocalStorage() {
+        localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+    }
+
+    _getLocalStorage() {
+        const data = JSON.parse(localStorage.getItem('workouts'));
+
+        if (!data) return;
+
+        this.#workouts = data;
+
+        this.#workouts.forEach(work => {
+            this._renderWorkout(work);
+        });
+    }
+
+    reset() {
+        localStorage.removeItem('workouts');
+        location.reload(); //reloading a page
       }
 }
 
