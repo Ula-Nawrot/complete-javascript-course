@@ -77,28 +77,29 @@ const renderCountry = function (data) {
 // getCountryData('poland')
 
 //more clear code
-const getCountryData = function (country) {
-    //Country 1
-    fetch(`https://restcountries.eu/rest/v2/name/${country}`).
-    then(
-        response => response.json())
-        .then(data => {
-            renderCountry(data[0])
-            const neighbour = data[0].borders[0];
+// const getCountryData = function (country) {
+//     //Country 1
+//     fetch(`https://restcountries.eu/rest/v2/name/${country}`).
+//     then(
+//         response => response.json())
+//         .then(data => {
+//             renderCountry(data[0])
+//             const neighbour = data[0].borders[0];
 
-            if (!neighbour) return;
+//             if (!neighbour) return;
 
-            //Country 2
-            return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`)
-        }).then(response => response.json())
-        .then(data => renderCountry(data))
-        .catch(err=>alert(err));
-        //catch method will catch any errors that occure in any place in this whole promise chain
-        //errors propagate down the chain until they are caught
-}
+//             //Country 2
+//             return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`)
+//         }).then(response => response.json())
+//         .then(data => renderCountry(data))
+//         .catch(err=>alert(err));
+//         //catch method will catch any errors that occure in any place in this whole promise chain
+//         //errors propagate down the chain until they are caught
+// }
 
-btn.addEventListener('click',function(){
-    getCountryData('Poland')
-})
+// btn.addEventListener('click',function(){
+//     getCountryData('Poland')
+// })
 
 //getCountryData('poland');
+
